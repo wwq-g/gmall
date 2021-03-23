@@ -30,15 +30,15 @@ public class UserServiceImpl implements UserService {
     @Override
     public List<UmsMemberReceiveAddress> getReceiveAddressByMemberId(String numberId) {
         //封装的参数对象
-        UmsMemberReceiveAddress umsMemberReceiveAddress = new UmsMemberReceiveAddress();
-        umsMemberReceiveAddress.setMemberId(numberId);
+//        UmsMemberReceiveAddress umsMemberReceiveAddress = new UmsMemberReceiveAddress();
+//        umsMemberReceiveAddress.setMemberId(numberId);
+//
+//        List<UmsMemberReceiveAddress> umsMemberReceiveAddresses = umsMemberReceiveAddressMapper.select(umsMemberReceiveAddress);
 
-        List<UmsMemberReceiveAddress> umsMemberReceiveAddresses = umsMemberReceiveAddressMapper.select(umsMemberReceiveAddress);
-//
-//        Example example = new Example(UmsMemberReceiveAddress.class);
-//       example.createCriteria().andEqualTo("memberId",numberId);
-//
-//        List<UmsMemberReceiveAddress> umsMemberReceiveAddresses = umsMemberReceiveAddressMapper.selectByExample(umsMemberReceiveAddress);
+        Example example = new Example(UmsMemberReceiveAddress.class);
+       example.createCriteria().andEqualTo("memberId",numberId);
+
+        List<UmsMemberReceiveAddress> umsMemberReceiveAddresses = umsMemberReceiveAddressMapper.selectByExample(example);
 
         return umsMemberReceiveAddresses;
     }

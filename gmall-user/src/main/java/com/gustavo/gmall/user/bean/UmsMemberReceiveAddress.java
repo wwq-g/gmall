@@ -1,12 +1,12 @@
 package com.gustavo.gmall.user.bean;
 
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
+
 import javax.persistence.Id;
 import java.io.Serializable;
 
 public class UmsMemberReceiveAddress implements Serializable {
+
     @Id
     private String id;
     private String memberId;
@@ -99,3 +99,4 @@ public class UmsMemberReceiveAddress implements Serializable {
         this.detailAddress = detailAddress;
     }
 }
+

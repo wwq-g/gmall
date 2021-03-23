@@ -4,7 +4,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.gustavo.gmall.user.mapper.UserMapper">
 
-    <select id="selectAll" resultType="com.gustavo.gmall.user.bean.UmsMember">
+    <select id="selectAllUser" resultType="com.gustavo.gmall.user.bean.UmsMember">
         select t.*  from ums_member t
     </select>
 
