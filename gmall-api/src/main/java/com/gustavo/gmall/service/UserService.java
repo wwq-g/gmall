@@ -1,7 +1,8 @@
-package com.gustavo.gmall.user.service;
+package com.gustavo.gmall.service;
 
-import com.gustavo.gmall.user.bean.UmsMember;
-import com.gustavo.gmall.user.bean.UmsMemberReceiveAddress;
+
+import com.gustavo.gmall.bean.UmsMember;
+import com.gustavo.gmall.bean.UmsMemberReceiveAddress;
 
 import java.util.List;
 

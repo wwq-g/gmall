@@ -1,10 +1,11 @@
 package com.gustavo.gmall.user.service.impl;
 
-import com.gustavo.gmall.user.bean.UmsMember;
-import com.gustavo.gmall.user.bean.UmsMemberReceiveAddress;
+
+import com.gustavo.gmall.bean.UmsMember;
+import com.gustavo.gmall.bean.UmsMemberReceiveAddress;
+import com.gustavo.gmall.service.UserService;
 import com.gustavo.gmall.user.mapper.UmsMemberReceiveAddressMapper;
 import com.gustavo.gmall.user.mapper.UserMapper;
-import com.gustavo.gmall.user.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import tk.mybatis.mapper.entity.Example;
@@ -24,8 +25,7 @@ public class UserServiceImpl implements UserService {
     public List<UmsMember> getAllUser() {
         List<UmsMember> umsMemberList = userMapper.selectAll();//userMapper.selectAllUser();
 
-        return umsMemberList;
-    }
+        return umsMemberList;    }
 
     @Override
     public List<UmsMemberReceiveAddress> getReceiveAddressByMemberId(String numberId) {
