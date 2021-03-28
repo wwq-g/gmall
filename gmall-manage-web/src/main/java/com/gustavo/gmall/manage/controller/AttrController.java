@@ -1,0 +1,62 @@
+package com.gustavo.gmall.manage.controller;
+
+
+import com.alibaba.dubbo.config.annotation.Reference;
+import com.gustavo.gmall.bean.PmsBaseAttrInfo;
+import com.gustavo.gmall.bean.PmsBaseAttrValue;
+import com.gustavo.gmall.service.AttrService;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import java.util.List;
+
+@Controller
+@CrossOrigin
+public class AttrController {
+
+    @Reference
+    AttrService attrService;
+
+    /**
+     * 商品属性列表显示
+     * @param catalog3Id
+     * @return
+     */
+    @RequestMapping("attrInfoList")
+    @ResponseBody
+    public List<PmsBaseAttrInfo> attrInfoList(String catalog3Id){
+        List<PmsBaseAttrInfo> pmsBaseAttrInfos = attrService.attrInfoList(catalog3Id);
+        return pmsBaseAttrInfos;
+    }
+
+
+    /**
+     * 修改商品属性列表显示
+     * @param attrId
+     * @return
+     */
+    @RequestMapping("getAttrValueList")
+    @ResponseBody
+    public List<PmsBaseAttrValue> getAttrValueList(String attrId){
+        List<PmsBaseAttrValue> pmsBaseAttrValues = attrService.attrValueList(attrId);
+        return pmsBaseAttrValues;
+    }
+
+
+    /**
+     *
+     * 添加保存商品属性
+     * @param pmsBaseAttrInfo
+     * @return
+     */
+    @RequestMapping("saveAttrInfo")
+    @ResponseBody
+    public String saveAttrInfo(@RequestBody PmsBaseAttrInfo pmsBaseAttrInfo){
+
+        String success = attrService.saveAttrInfo(pmsBaseAttrInfo);
+        return "success";
+    }
+}
