@@ -4,6 +4,7 @@ package com.gustavo.gmall.manage.controller;
 import com.alibaba.dubbo.config.annotation.Reference;
 import com.gustavo.gmall.bean.PmsBaseAttrInfo;
 import com.gustavo.gmall.bean.PmsBaseAttrValue;
+import com.gustavo.gmall.bean.PmsBaseSaleAttr;
 import com.gustavo.gmall.service.AttrService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -19,6 +20,16 @@ public class AttrController {
 
     @Reference
     AttrService attrService;
+
+
+
+    @RequestMapping("baseSaleAttrList")
+    @ResponseBody
+    public List<PmsBaseSaleAttr> baseSaleAttrList(){
+        List<PmsBaseSaleAttr> pmsBaseSaleAttrs = attrService.baseSaleAttrList();
+        return pmsBaseSaleAttrs;
+    }
+
 
     /**
      * 商品属性列表显示
