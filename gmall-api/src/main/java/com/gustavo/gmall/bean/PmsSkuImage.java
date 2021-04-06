@@ -2,6 +2,7 @@ package com.gustavo.gmall.bean;
 
 import javax.persistence.Column;
 import javax.persistence.Id;
+import javax.persistence.Transient;
 import java.io.Serializable;
 
 /**
@@ -71,4 +72,6 @@ public class PmsSkuImage implements Serializable {
     public void setIsDefault(String isDefault) {
         this.isDefault = isDefault;
     }
+
+
 }
