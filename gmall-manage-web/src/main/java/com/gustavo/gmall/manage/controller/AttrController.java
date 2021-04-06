@@ -23,6 +23,8 @@ public class AttrController {
 
 
 
+
+
     @RequestMapping("baseSaleAttrList")
     @ResponseBody
     public List<PmsBaseSaleAttr> baseSaleAttrList(){
@@ -68,6 +70,9 @@ public class AttrController {
     public String saveAttrInfo(@RequestBody PmsBaseAttrInfo pmsBaseAttrInfo){
 
         String success = attrService.saveAttrInfo(pmsBaseAttrInfo);
-        return "success";
+        return success;
     }
+
+
+
 }

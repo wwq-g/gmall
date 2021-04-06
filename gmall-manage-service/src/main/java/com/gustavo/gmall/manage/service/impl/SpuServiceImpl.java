@@ -30,7 +30,11 @@ public class SpuServiceImpl implements SpuService {
     PmsProductSaleAttrValueMapper pmsProductSaleAttrValueMapper;
 
 
-
+    /**
+     * spu列表
+     * @param catalog3Id
+     * @return
+     */
     @Override
     public List<PmsProductInfo> spuList(String catalog3Id) {
 
@@ -40,6 +44,11 @@ public class SpuServiceImpl implements SpuService {
         return pmsProductInfos;
     }
 
+
+    /**
+     * 保存spu
+     * @param pmsProductInfo
+     */
     @Override
     public void saveSpuInfo(PmsProductInfo pmsProductInfo) {
 
@@ -70,4 +79,40 @@ public class SpuServiceImpl implements SpuService {
             }
         }
     }
+
+    /**
+     *
+     * @param spuId
+     * @return
+     */
+    @Override
+    public List<PmsProductSaleAttr> spuSaleAttrList(String spuId) {
+        PmsProductSaleAttr pmsProductSaleAttr = new PmsProductSaleAttr();
+        pmsProductSaleAttr.setProductId(spuId);
+        List<PmsProductSaleAttr> PmsProductSaleAttrs = pmsProductSaleAttrMapper.select(pmsProductSaleAttr);
+        for (PmsProductSaleAttr productSaleAttr : PmsProductSaleAttrs) {
+            PmsProductSaleAttrValue pmsProductSaleAttrValue = new PmsProductSaleAttrValue();
+            pmsProductSaleAttrValue.setProductId(spuId);
+            pmsProductSaleAttrValue.setSaleAttrId(productSaleAttr.getSaleAttrId());// 销售属性id用的是系统的字典表中id，不是销售属性表的主键
+            List<PmsProductSaleAttrValue> pmsProductSaleAttrValues = pmsProductSaleAttrValueMapper.select(pmsProductSaleAttrValue);
+            productSaleAttr.setSpuSaleAttrValueList(pmsProductSaleAttrValues);
+        }
+
+        return PmsProductSaleAttrs;
+    }
+
+    /**
+     *
+     * @param spuId
+     * @return
+     */
+    @Override
+    public List<PmsProductImage> spuImageList(String spuId) {
+        PmsProductImage pmsProductImage = new PmsProductImage();
+        pmsProductImage.setProductId(spuId);
+        List<PmsProductImage> pmsProductImages = pmsProductImageMapper.select(pmsProductImage);
+        return pmsProductImages;
+    }
+
+
 }

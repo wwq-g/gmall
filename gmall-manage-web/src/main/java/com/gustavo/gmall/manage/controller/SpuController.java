@@ -2,7 +2,9 @@ package com.gustavo.gmall.manage.controller;
 
 
 import com.alibaba.dubbo.config.annotation.Reference;
+import com.gustavo.gmall.bean.PmsProductImage;
 import com.gustavo.gmall.bean.PmsProductInfo;
+import com.gustavo.gmall.bean.PmsProductSaleAttr;
 import com.gustavo.gmall.manage.util.PmsUploadUtil;
 import com.gustavo.gmall.service.AttrService;
 import com.gustavo.gmall.service.SpuService;
@@ -18,6 +20,8 @@ public class SpuController {
 
     @Reference
     SpuService spuService;
+
+
 
     /**
      * 图片处理
@@ -44,11 +48,32 @@ public class SpuController {
         return pmsProductInfos;
     }
 
+    /**
+     * 保存商品
+     * @param pmsProductInfo
+     * @return
+     */
     @RequestMapping("saveSpuInfo")
     @ResponseBody
     public String saveSpuInfo(@RequestBody PmsProductInfo pmsProductInfo){
         spuService.saveSpuInfo(pmsProductInfo);
         return "success";
+    }
+
+
+    @RequestMapping("spuSaleAttrList")
+    @ResponseBody
+    public List<PmsProductSaleAttr> spuSaleAttrList(String spuId){
+        List<PmsProductSaleAttr> pmsProductSaleAttrs = spuService.spuSaleAttrList(spuId);
+        return pmsProductSaleAttrs;
+    }
+
+    @RequestMapping("spuImageList")
+    @ResponseBody
+    public List<PmsProductImage> spuImageList(String spuId) {
+
+        List<PmsProductImage> pmsProductImages = spuService.spuImageList(spuId);
+        return pmsProductImages;
     }
 
 }
