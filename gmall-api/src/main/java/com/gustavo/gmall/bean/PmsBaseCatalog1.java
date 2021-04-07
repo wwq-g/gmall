@@ -1,7 +1,6 @@
 package com.gustavo.gmall.bean;
 
 
-
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.List;

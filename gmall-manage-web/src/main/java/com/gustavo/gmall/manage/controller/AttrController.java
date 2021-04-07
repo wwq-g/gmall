@@ -22,12 +22,9 @@ public class AttrController {
     AttrService attrService;
 
 
-
-
-
     @RequestMapping("baseSaleAttrList")
     @ResponseBody
-    public List<PmsBaseSaleAttr> baseSaleAttrList(){
+    public List<PmsBaseSaleAttr> baseSaleAttrList() {
         List<PmsBaseSaleAttr> pmsBaseSaleAttrs = attrService.baseSaleAttrList();
         return pmsBaseSaleAttrs;
     }
@@ -35,12 +32,13 @@ public class AttrController {
 
     /**
      * 商品属性列表显示
+     *
      * @param catalog3Id
      * @return
      */
     @RequestMapping("attrInfoList")
     @ResponseBody
-    public List<PmsBaseAttrInfo> attrInfoList(String catalog3Id){
+    public List<PmsBaseAttrInfo> attrInfoList(String catalog3Id) {
         List<PmsBaseAttrInfo> pmsBaseAttrInfos = attrService.attrInfoList(catalog3Id);
         return pmsBaseAttrInfos;
     }
@@ -48,31 +46,31 @@ public class AttrController {
 
     /**
      * 修改商品属性列表显示
+     *
      * @param attrId
      * @return
      */
     @RequestMapping("getAttrValueList")
     @ResponseBody
-    public List<PmsBaseAttrValue> getAttrValueList(String attrId){
+    public List<PmsBaseAttrValue> getAttrValueList(String attrId) {
         List<PmsBaseAttrValue> pmsBaseAttrValues = attrService.attrValueList(attrId);
         return pmsBaseAttrValues;
     }
 
 
     /**
-     *
      * 添加保存商品属性
+     *
      * @param pmsBaseAttrInfo
      * @return
      */
     @RequestMapping("saveAttrInfo")
     @ResponseBody
-    public String saveAttrInfo(@RequestBody PmsBaseAttrInfo pmsBaseAttrInfo){
+    public String saveAttrInfo(@RequestBody PmsBaseAttrInfo pmsBaseAttrInfo) {
 
         String success = attrService.saveAttrInfo(pmsBaseAttrInfo);
         return success;
     }
-
 
 
 }

@@ -32,6 +32,7 @@ public class SkuServiceImpl implements SkuService {
 
     /**
      * 保存sku
+     *
      * @param pmsSkuInfo
      */
     @Override

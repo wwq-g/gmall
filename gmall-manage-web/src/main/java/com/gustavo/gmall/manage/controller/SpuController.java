@@ -22,15 +22,15 @@ public class SpuController {
     SpuService spuService;
 
 
-
     /**
      * 图片处理
+     *
      * @param multipartFile
      * @return
      */
     @RequestMapping("fileUpload")
     @ResponseBody
-    public String fileUpload(@RequestParam("file")MultipartFile multipartFile){
+    public String fileUpload(@RequestParam("file") MultipartFile multipartFile) {
         //将图片或者音视频上传到分布式的文件存储系统
         //将图片的存储路径返回给页面
         String imgUrl = PmsUploadUtil.uploadImage(multipartFile);
@@ -40,22 +40,22 @@ public class SpuController {
     }
 
 
-
     @RequestMapping("spuList")
     @ResponseBody
-    public List<PmsProductInfo> spuList(String catalog3Id){
+    public List<PmsProductInfo> spuList(String catalog3Id) {
         List<PmsProductInfo> pmsProductInfos = spuService.spuList(catalog3Id);
         return pmsProductInfos;
     }
 
     /**
      * 保存商品
+     *
      * @param pmsProductInfo
      * @return
      */
     @RequestMapping("saveSpuInfo")
     @ResponseBody
-    public String saveSpuInfo(@RequestBody PmsProductInfo pmsProductInfo){
+    public String saveSpuInfo(@RequestBody PmsProductInfo pmsProductInfo) {
         spuService.saveSpuInfo(pmsProductInfo);
         return "success";
     }
@@ -63,7 +63,7 @@ public class SpuController {
 
     @RequestMapping("spuSaleAttrList")
     @ResponseBody
-    public List<PmsProductSaleAttr> spuSaleAttrList(String spuId){
+    public List<PmsProductSaleAttr> spuSaleAttrList(String spuId) {
         List<PmsProductSaleAttr> pmsProductSaleAttrs = spuService.spuSaleAttrList(spuId);
         return pmsProductSaleAttrs;
     }

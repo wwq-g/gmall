@@ -34,7 +34,7 @@ public class PmsUploadUtil {
         }
 
         // 通过tracker获得一个Storage链接客户端
-        StorageClient storageClient = new StorageClient(trackerServer,null);
+        StorageClient storageClient = new StorageClient(trackerServer, null);
 
         try {
 
@@ -44,12 +44,12 @@ public class PmsUploadUtil {
             String originalFilename = multipartFile.getOriginalFilename();// a.jpg
             System.out.println(originalFilename);
             int i = originalFilename.lastIndexOf(".");
-            String extName = originalFilename.substring(i+1);
+            String extName = originalFilename.substring(i + 1);
 
             String[] uploadInfos = storageClient.upload_file(bytes, extName, null);
 
             for (String uploadInfo : uploadInfos) {
-                imgUrl += "/"+uploadInfo;
+                imgUrl += "/" + uploadInfo;
             }
         } catch (Exception e) {
             e.printStackTrace();

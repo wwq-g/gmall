@@ -32,6 +32,7 @@ public class SpuServiceImpl implements SpuService {
 
     /**
      * spu列表
+     *
      * @param catalog3Id
      * @return
      */
@@ -47,6 +48,7 @@ public class SpuServiceImpl implements SpuService {
 
     /**
      * 保存spu
+     *
      * @param pmsProductInfo
      */
     @Override
@@ -81,7 +83,6 @@ public class SpuServiceImpl implements SpuService {
     }
 
     /**
-     *
      * @param spuId
      * @return
      */
@@ -102,7 +103,6 @@ public class SpuServiceImpl implements SpuService {
     }
 
     /**
-     *
      * @param spuId
      * @return
      */

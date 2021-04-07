@@ -25,7 +25,8 @@ public class UserServiceImpl implements UserService {
     public List<UmsMember> getAllUser() {
         List<UmsMember> umsMemberList = userMapper.selectAll();//userMapper.selectAllUser();
 
-        return umsMemberList;    }
+        return umsMemberList;
+    }
 
     @Override
     public List<UmsMemberReceiveAddress> getReceiveAddressByMemberId(String numberId) {
@@ -36,7 +37,7 @@ public class UserServiceImpl implements UserService {
 //        List<UmsMemberReceiveAddress> umsMemberReceiveAddresses = umsMemberReceiveAddressMapper.select(umsMemberReceiveAddress);
 
         Example example = new Example(UmsMemberReceiveAddress.class);
-       example.createCriteria().andEqualTo("memberId",numberId);
+        example.createCriteria().andEqualTo("memberId", numberId);
 
         List<UmsMemberReceiveAddress> umsMemberReceiveAddresses = umsMemberReceiveAddressMapper.selectByExample(example);
 

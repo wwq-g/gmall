@@ -20,21 +20,21 @@ public class UserController {
 
     @RequestMapping("index")
     @ResponseBody
-    public String index(){
+    public String index() {
         return "hello user";
     }
 
 
     @RequestMapping("getAllUser")
     @ResponseBody
-    public List<UmsMember> getAllUser(){
+    public List<UmsMember> getAllUser() {
         List<UmsMember> umsMembers = userService.getAllUser();
         return umsMembers;
     }
 
     @RequestMapping("getReceiveAddressByMemberId")
     @ResponseBody
-    public List<UmsMemberReceiveAddress> getReceiveAddressByMemberId(String numberId){
+    public List<UmsMemberReceiveAddress> getReceiveAddressByMemberId(String numberId) {
         List<UmsMemberReceiveAddress> umsMemberReceiveAddresses = userService.getReceiveAddressByMemberId(numberId);
         return umsMemberReceiveAddresses;
     }
