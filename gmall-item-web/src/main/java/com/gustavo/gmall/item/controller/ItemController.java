@@ -5,9 +5,11 @@ import com.gustavo.gmall.bean.PmsSkuInfo;
 import com.gustavo.gmall.service.SkuService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+@CrossOrigin
 @Controller
 public class ItemController{
 

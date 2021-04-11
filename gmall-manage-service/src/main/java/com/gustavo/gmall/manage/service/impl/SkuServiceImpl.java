@@ -71,10 +71,17 @@ public class SkuServiceImpl implements SkuService {
      */
     @Override
     public PmsSkuInfo getSkuById(String skuId) {
+
+        //sku商品对象
         PmsSkuInfo pmsSkuInfo = new PmsSkuInfo();
         pmsSkuInfo.setId(skuId);
         PmsSkuInfo skuInfo =pmsSkuInfoMapper.selectOne(pmsSkuInfo);
 
+        //sku的图片集合
+        PmsSkuImage pmsSkuImage = new PmsSkuImage();
+        pmsSkuImage.setSkuId(skuId);
+        List<PmsSkuImage> pmsSkuImages = pmsSkuImageMapper.select(pmsSkuImage);
+        skuInfo.setSkuImageList(pmsSkuImages);
         return skuInfo;
     }
 }
