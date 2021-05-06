@@ -20,7 +20,7 @@
 
     <resultMap id="selectSpuSaleAttrListCheckBySkuMap" type="com.gustavo.gmall.bean.PmsProductSaleAttr" autoMapping="true">
         <result column="sa_id" property="id"></result>
-        <collection property="spuSaleAttrValueList" ofType="com.atguigu.gmall.bean.PmsProductSaleAttrValue" autoMapping="true">
+        <collection property="spuSaleAttrValueList" ofType="com.gustavo.gmall.bean.PmsProductSaleAttrValue" autoMapping="true">
             <result column="sav_id" property="id"></result>
         </collection>
     </resultMap>
