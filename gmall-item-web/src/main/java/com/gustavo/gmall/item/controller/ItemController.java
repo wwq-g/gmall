@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -35,7 +36,11 @@ public class ItemController{
 
     //商品页展示
     @RequestMapping("{skuId}.html")
-    public String item(@PathVariable String skuId, ModelMap map){
+    public String item(@PathVariable String skuId, ModelMap map, HttpServletRequest request){
+
+        String remoteAddr = request.getRemoteAddr();
+
+
         PmsSkuInfo pmsSkuInfo = skuService.getSkuById(skuId);
         map.put("skuInfo",pmsSkuInfo);
 
