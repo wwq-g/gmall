@@ -41,7 +41,7 @@ public class ItemController{
         String remoteAddr = request.getRemoteAddr();
 
 
-        PmsSkuInfo pmsSkuInfo = skuService.getSkuById(skuId);
+        PmsSkuInfo pmsSkuInfo = skuService.getSkuById(skuId,remoteAddr);
         map.put("skuInfo",pmsSkuInfo);
 
         //销售属性列表
